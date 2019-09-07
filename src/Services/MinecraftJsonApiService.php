@@ -29,8 +29,21 @@ class MinecraftJsonApiService extends MinecraftJsonApiClient
     {
         $player = $this->getPlayer($username);
 
+        return $player === null ? false : $player->isConnected();
+    }
 
-        return $player->isConnected();
+    /**
+     * Is a player existing
+     *
+     * @param string $username
+     *
+     * @return bool
+     * @throws GuzzleException
+     * @throws ServerOfflineException
+     */
+    public function isPlayerExist(string $username) : bool
+    {
+        return $this->getPlayer($username) !== null;
     }
 
     /**
