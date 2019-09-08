@@ -1,5 +1,5 @@
 {
-  "name": "kangoo13/laravel-jsonapi-minecraft-client",
+  "name": "kangoo13/laravel-minecraft-jsonapi-client",
   "type": "library",
   "description": "Client to interact directly with servers having JSONAPI Reloaded plugin installed.",
   "keywords": [
