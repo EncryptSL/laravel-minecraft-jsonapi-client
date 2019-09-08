@@ -4,7 +4,6 @@
 namespace Kangoo13\Minecraft\JsonApi\Models;
 
 use JMS\Serializer\Annotation as Serializer;
-use JMS\Serializer\Annotation;
 
 /**
  * Class Player
@@ -33,6 +32,13 @@ class Player
      * @var Enderchest[]
      */
     protected $enderchest;
+
+    /**
+     * @Serializer\Type("Kangoo13\Minecraft\JsonApi\Models\PlayerInventory")
+     * @Serializer\SerializedName("inventory")
+     * @var PlayerInventory
+     */
+    protected $playerInventory;
 
     /**
      * @return bool
@@ -101,5 +107,25 @@ class Player
      */
     public function isConnected() : bool {
         return !$this->getIp() === 'offline';
+    }
+
+    /**
+     * @return PlayerInventory
+     */
+    public function getPlayerInventory()
+    {
+        return $this->playerInventory;
+    }
+
+    /**
+     * @param PlayerInventory $playerInventory
+     *
+     * @return Player
+     */
+    public function setPlayerInventory(PlayerInventory $playerInventory) : Player
+    {
+        $this->playerInventory = $playerInventory;
+
+        return $this;
     }
 }
