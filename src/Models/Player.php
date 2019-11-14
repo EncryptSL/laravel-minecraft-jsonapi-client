@@ -106,7 +106,7 @@ class Player
      * @return bool
      */
     public function isConnected() : bool {
-        return !$this->getIp() === 'offline';
+        return !($this->getIp() === 'offline');
     }
 
     /**
