@@ -114,10 +114,7 @@ abstract class MinecraftJsonApiClient
                 ],
             ]);
         } catch (ConnectException $e) {
-            if ($e->getHandlerContext()['errno'] === 6) {
-                throw new ServerOfflineException();
-            }
-            throw $e;
+            throw new ServerOfflineException();
         }
 
         if ($response->getStatusCode() >= 400) {
